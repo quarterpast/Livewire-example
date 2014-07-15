@@ -46,5 +46,12 @@ http.createServer(handle(route.route([
       return json(newquote);
     });
   }),
+  route.delete('/quote/:id', function(req) {
+    if(quotes[req.params.id]) {
+      quotes.splice(req.params.id, 1);
+      return resp.ok();
+    }
+    return resp.notFound('Quote not found');
+  }),
   function(req) { return resp.notFound(req.url + ' not found'); }
 ]))).listen(process.env.PORT || 3000);
