@@ -36,5 +36,15 @@ http.createServer(handle(route.route([
     }
     return resp.notFound('No quote found');
   }),
+  route.post('/quote', function(req) {
+    return route.json(req).flatMap(function(body) {
+      var newquote = {
+        author: body.author,
+        text: body.text
+      };
+      quotes.push(newquote);
+      return json(newquote);
+    });
+  }),
   function(req) { return resp.notFound(req.url + ' not found'); }
 ]))).listen(process.env.PORT || 3000);
