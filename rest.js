@@ -29,5 +29,6 @@ http.createServer(handle(route.route([
   route.get('/random', function() {
     var id = Math.floor(Math.random() * quotes.length);
     return json(quotes[id]);
-  })
+  }),
+  function(req) { return resp.notFound(req.url + ' not found'); }
 ]))).listen(process.env.PORT || 3000);
