@@ -22,8 +22,12 @@ function json(obj) {
     .withHeader('Content-Type', 'application/json');
 }
 
-http.createServer(handle(
+http.createServer(handle(route.route([
   route.get('/quotes', function() {
     return json(quotes);
+  }),
+  route.get('/random', function() {
+    var id = Math.floor(Math.random() * quotes.length);
+    return json(quotes[id]);
   })
-)).listen(process.env.PORT || 3000);
+]))).listen(process.env.PORT || 3000);
