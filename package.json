@@ -1,0 +1,24 @@
+{
+  "name": "Livewire-example",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/quarterto/Livewire-example.git"
+  },
+  "author": "Matt Brennan <mwrbrennan@gmail.com> (http://blog.153.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/quarterto/Livewire-example/issues"
+  },
+  "homepage": "https://github.com/quarterto/Livewire-example",
+  "dependencies": {
+    "dram": "^0.2.0",
+    "livewire": "^0.5.0",
+    "oban": "^0.2.0"
+  }
+}
