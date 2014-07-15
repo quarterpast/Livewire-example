@@ -30,5 +30,11 @@ http.createServer(handle(route.route([
     var id = Math.floor(Math.random() * quotes.length);
     return json(quotes[id]);
   }),
+  route.get('/quote/:id', function(req) {
+    if(quotes[req.params.id]) {
+      return json(quotes[req.params.id]);
+    }
+    return resp.notFound('No quote found');
+  }),
   function(req) { return resp.notFound(req.url + ' not found'); }
 ]))).listen(process.env.PORT || 3000);
